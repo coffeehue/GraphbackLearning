@@ -1,0 +1,25 @@
+""" @model """
+type Author {
+  """ @id """
+  id: ID!
+  authorName: String!
+  country: String
+  """
+  @oneToMany(field: 'author')
+  """
+  Book: [Book!]
+}
+
+""" @model """
+type Book {
+  """ @id """
+  id: ID!
+  bookName: String
+  genre: String
+  price: String
+  """
+  @oneToMany(field: 'book')
+  """
+  Author: [Author!]
+}
+
